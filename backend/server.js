@@ -34,4 +34,7 @@ app.get('/api/status', (req, res) => {
   return res.json({ status: 'Server Aktif' });
 });
 
-app.listen(PORT, () => console.log(`Server berjalan di http://localhost:${PORT}`));
+const PORT = process.env.PORT || 3000
+app.listen(PORT, () => {
+  console.log(`✅ Server jalan di port ${PORT}`)
+})
