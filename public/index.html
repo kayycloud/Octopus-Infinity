@@ -44,7 +44,7 @@
     function login() {
       const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
-      fetch('/api/login', {
+      fetch('https://octopus-infinity-production.up.railway.app/api/login', {
         method: 'POST',
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify({ username, password })
@@ -63,7 +63,7 @@
       document.getElementById('loginContainer').style.display = 'none';
       document.getElementById('mainContainer').style.display = 'block';
       document.getElementById('welcomeText').innerText = "Selamat datang, " + user + "!";
-      fetch('/api/status').then(res => res.json()).then(data => {
+      fetch('https://octopus-infinity-production.up.railway.app/api/status').then(res => res.json()).then(data => {
         document.getElementById('statusServer').innerText = "Status: " + data.status;
       });
     }
@@ -75,7 +75,7 @@
 
     function sendAction(type) {
       const target = document.getElementById('target').value;
-      fetch('/api/action', {
+      fetch('https://octopus-infinity-production.up.railway.app/api/action', {
         method: 'POST',
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify({ target, type })
